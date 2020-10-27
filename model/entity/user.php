@@ -1,4 +1,5 @@
 <?php
+require_once "model/entity/Entity.php";
 // Classe représetant les utilisateurs stockés en base de données
 final class User extends Entity{
 
@@ -13,67 +14,74 @@ final class User extends Entity{
     protected string $birth_date;
 
 
-    private function setFirstname(string $firstname) {
+    public function setFirstname(string $firstname) {
         $this->firstname=htmlspecialchars($firstname);
     }
     public function getFirstname() {
         return $this->firstname;
     }
 
-    private function setLastname(string $lastname) {
+    public function setLastname(string $lastname) {
         $this->lastname= htmlspecialchars($lastname);
     }
     public function getLastname() {
         return $this->lastname;
     }
 
-    private function setAdress(string $adress) {
+    public function setAdress(string $adress) {
         $this->adress=htmlspecialchars($adress);
     }
     public function getAdress() {
         return $this->adress;
     }
 
-    private function setCityCode(int $city_code) {
+    public function setCityCode(int $city_code) {
         $this->city_code =htmlspecialchars($city_code);
     }
     public function getCityCode() {
         return $this->city_code;
     }
 
-    private function setCity(string $city) {
+    public function setCity(string $city) {
         $this->city=htmlspecialchars($city);
     }
     public function getCity() {
         return $this->city;
     }
 
-    private function setPhone(string $phone) {
+    public function setPhone(string $phone) {
         $this->phone=htmlspecialchars($phone);
     }
     public function getPhone() {
         return $this->city;
     }
 
-    private function setEmail(string $email) {
-        $this->email=$email;
+    public function setEmail(string $email) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $this->email=$email;
+            return $this;
+        }
+        throw new Exception("Format d'email incorrect");
     }
     public function getEmail() {
         return $this->email;
     }
 
-    private function setSex(string  $sex) {
+    public function setSex(string  $sex) {
         $this->sex=htmlspecialchars($sex);
     }
     public function getSex() {
         return $this->sex;
     }
 
-    private function setBirthDate(string $birth_date) {
+    public function setBirth_date(string $birth_date) {
         $this->birth_date=$birth_date;
     }
-    public function getBirthDate() {
+    public function getBirth_date() {
         return $this->birth_date;
     }
 
+    public function __construct($data) {
+        $this->hydrate($data);
+    }
 }
