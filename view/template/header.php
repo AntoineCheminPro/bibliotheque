@@ -37,3 +37,8 @@
         </div>
       </header>
         <main>
+
+<?php 
+require_once "model/userManager.php";
+require_once "model/bookManager.php";
+?>

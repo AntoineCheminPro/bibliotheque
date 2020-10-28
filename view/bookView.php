@@ -14,6 +14,7 @@
 if ($book->getUser_id() !==0){
   ?>
   <p class="card-text">non disponible</p>
+  <span>Prêté à : </span><a type="submit" name="singleUser" class="card-text" href="user.php?<?php echo "id=".$user->getId();?>"><?php echo $user->getFirstname() . " " . $user->getLastname()?></a>
   <form action="" method="post">
     <input type="submit" class="btn btn-success text-white mx-2 my-0" name="bookStatusSwitch" value="Restituer"></input>
   </form>

@@ -16,7 +16,9 @@
     <p class="card-text">Tél. : <?php echo $user->getPhone()  ?></p>
     <p class="card-text">Email : <?php echo $user->getEmail()  ?></p>
     <p class="card-text">Date de naissance : <?php echo $user->getBirth_date()  ?></p>
-
-    <a href="#" class="btn btn-success text-white mx-2 my-0">Livres en cours</a>
+    <?php
+    
+     include "view/indexView.php"; 
+     ?>
   </div>
 </div>

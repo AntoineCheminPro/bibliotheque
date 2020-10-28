@@ -67,7 +67,20 @@ final class bookManager extends dataBase {
     header("Location:index.php");
     exit();
     return $result;
-  
   }
-
+  public function getBooksByUserId(User $user):array {
+    $query = $this->getDB()->prepare(
+    "SELECT *
+    FROM book
+    WHERE user_id = :user_id
+    ");
+    $query->execute([
+      "user_id" => $user->getId(),
+    ]);
+    $books =$query -> fetchAll(PDO::FETCH_ASSOC);
+    foreach ($books as $key => $book) {
+      $books[$key] = new Book($book);
+    }
+    return $books;
+  }
 }

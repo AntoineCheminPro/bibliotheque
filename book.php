@@ -15,8 +15,11 @@ if (isset($_POST) && !empty($_POST)){
     $bookStatus = $bookShowed->updateBookStatus($book, $userID);
 }
 
-$userSearch = new UserManager();
-var_dump($book->getUser_id());
+if ($book->getUser_id() !==0){
+    $user = new UserManager();
+    $user= $user->getUserById($book->getUser_id());
+    
+}
 
 include "view/bookView.php";
 
