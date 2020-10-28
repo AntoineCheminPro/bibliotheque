@@ -2,10 +2,16 @@
     <div class="justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <button class="btn btn-primary text-white mx-2 my-0" href="">Livres</button>
+          <a class="btn btn-primary text-white mx-2 my-0" href="index.php">Livres</a>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary text-white mx-2 my-0" href="">Utlisateurs</button>
+          <a class="btn btn-primary text-white mx-2 my-0" href="users.php">Utlisateurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary text-white mx-2 my-0" href="newBook.php">Ajout livre</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary text-white mx-2 my-0" href="users.php">Nouvel usager</a>
         </li>
       </ul>
     </div>

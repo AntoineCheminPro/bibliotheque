@@ -2,5 +2,14 @@
 // Controleur qui gère l'affichage du détail d'un utilisateur
 include "view/template/header.php";
 include "view/template/nav.php";
+require_once "model/userManager.php";
+
+
+if (isset($_GET) && !empty($_GET)){
+$user = new UserManager();
+$user = $user->getUserById(htmlspecialchars($_GET["id"]));
+}
+
+include "view/userView.php";
 
 include "view/template/footer.php";

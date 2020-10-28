@@ -28,8 +28,8 @@
     <header class="jumbotron jumbotron-fluid text-white bg-success container m-0 border-bottom p-2">
         <div class="row">
           <div>
-            <h1 class="display-4 col-7">La Bibliothèque Ada Lovelace</h1>
-            <p class="lead ">Les livres que j'aime lire !</p>
+            <h1 class="display-4 col-7 px-4">La Bibliothèque Ada Lovelace</h1>
+            <p class="lead px-4">Les livres que j'aime lire !</p>
           </div>
           <div class="col-4">      
             <img class="logo" src="img\—Pngtree—book icon_4421699.png" alt="">
