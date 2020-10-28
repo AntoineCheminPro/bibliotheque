@@ -33,7 +33,7 @@ CREATE TABLE Book(
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   title VARCHAR(50) NOT NULL,
   author VARCHAR(100) NOT NULL,
-  summary VARCHAR(400) NOT NULL, 
+  summary VARCHAR(800) NOT NULL, 
   category VARCHAR(50) NOT NULL, 
   publication_date DATE NOT NULL,
   user_id INT(5) UNSIGNED,

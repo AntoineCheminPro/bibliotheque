@@ -4,7 +4,6 @@ require_once "model/entity/Entity.php";
 // Classe représetant les livres stockés en base de données
 final class Book extends Entity {
 
-    protected int $id;
     protected string $title;
     protected string $author;
     protected string $summary;
@@ -12,13 +11,6 @@ final class Book extends Entity {
     protected string $publication_date;
     protected int $user_id;
 
-    public function setId(int $id){
-        $id = intval($id);
-        $this->id=htmlspecialchars($id);
-    }
-    public function getId(){
-      return $this->id;
-    }
 
     public function setTitle(string $title) {
         $this->title=htmlspecialchars($title);

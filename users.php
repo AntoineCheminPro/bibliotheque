@@ -6,6 +6,8 @@ require_once "model/userManager.php";
 
 $userslist =new UserManager();
 $users = $userslist -> getUsers();
-var_dump($users);
+
+include "view/usersView.php";
+
 
 include "view/template/footer.php";

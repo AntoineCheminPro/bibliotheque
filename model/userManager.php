@@ -1,7 +1,8 @@
 <?php
 require_once "model/dataBase.php";
 require_once "model/entity/user.php";
-final class userManager extends dataBase {
+
+final class UserManager extends dataBase {
 
   // Récupère tous les utilisateurs
   public function getUsers():array {
@@ -19,7 +20,18 @@ final class userManager extends dataBase {
 
   // Récupère un utilisateur par son id
   public function getUserById($user_id):User {
-
+    $query = $this->getDB()->prepare(
+      "SELECT *
+      FROM user
+      WHERE id = :user_id"
+      );
+      $query->execute([
+        "user_id" => $user_id
+      ]);
+      $user =$query -> fetchAll(PDO::FETCH_ASSOC);
+      $user = new User($user[0]);
+      
+      return $user;
   }
 
   

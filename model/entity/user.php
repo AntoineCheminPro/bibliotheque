@@ -13,6 +13,7 @@ final class User extends Entity{
     protected string $sex;
     protected string $birth_date;
 
+    
 
     public function setFirstname(string $firstname) {
         $this->firstname=htmlspecialchars($firstname);
@@ -35,10 +36,10 @@ final class User extends Entity{
         return $this->adress;
     }
 
-    public function setCityCode(int $city_code) {
+    public function setCity_code(int $city_code) {
         $this->city_code =htmlspecialchars($city_code);
     }
-    public function getCityCode() {
+    public function getCity_code() {
         return $this->city_code;
     }
 
@@ -53,7 +54,7 @@ final class User extends Entity{
         $this->phone=htmlspecialchars($phone);
     }
     public function getPhone() {
-        return $this->city;
+        return $this->phone;
     }
 
     public function setEmail(string $email) {
