@@ -2,7 +2,9 @@
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills">
       <li class="nav-item">
-        <a class="btn btn-danger" href="#">Supprimer</a>
+      <form action="" method="post">
+        <input class="btn btn-danger" type="submit" Value="Supprimer" name="bookSuppress" id="bookSuppress"></input>
+      </form>
       </li>
     </ul>
   </div>

@@ -18,6 +18,38 @@ final class bookManager extends dataBase {
     return $books;
   }
 
+// Récupère tous les livres
+public function getFreeBooks():array {
+  $query = $this->getDB()->prepare(
+  "SELECT *
+  FROM book
+  WHERE user_id IS NULL
+  ");
+  $query->execute();
+  $books =$query -> fetchAll(PDO::FETCH_ASSOC);
+
+  foreach ($books as $key => $book) {
+    $books[$key] = new Book($book);
+  }
+  return $books;
+}
+  // Récupère tous les livres triés
+  public function getOrderedBooks(?string $category):array {
+    $query = $this->getDB()->prepare(
+    "SELECT *
+    FROM book
+    WHERE category = :category
+    ");
+    $query->execute([
+      "category" => htmlspecialchars($category)
+    ]);
+    $books =$query -> fetchAll(PDO::FETCH_ASSOC);
+    foreach ($books as $key => $book) {
+      $books[$key] = new Book($book);
+    }
+    return $books;
+  }
+
   // Récupère un livre
   public function getBook($book_id):Book {
     $query = $this->getDB()->prepare(
@@ -49,9 +81,22 @@ final class bookManager extends dataBase {
       return $result;
   }
 
+  // Supprime un livre
+  public function suppressBook(Book $book):bool {
+    $query = $this->getDB()->prepare(
+      "DELETE FROM book
+      WHERE id = :id
+      ");
+    $result=$query->execute([
+      "id" => $book->getId(),
+    ]);
+    header("Location:index.php");
+    exit();
+    return $result;
+  }
+
   // Met à jour le statut d'un livre emprunté
   public function updateBookStatus(Book $book, ?int $userID):bool {
-    var_dump($userID);
     if (empty($userID)){
       $userID = NULL;
     }
@@ -68,6 +113,8 @@ final class bookManager extends dataBase {
     exit();
     return $result;
   }
+
+  // affiche la liste des livres empruntés par un utilisateur
   public function getBooksByUserId(User $user):array {
     $query = $this->getDB()->prepare(
     "SELECT *
@@ -83,4 +130,16 @@ final class bookManager extends dataBase {
     }
     return $books;
   }
+  // affiche la liste des categories de livres
+  public function getBooksCategories():array {
+    $query = $this->getDB()->prepare(
+    "SELECT category
+    FROM book
+    ");
+    $query->execute();
+    $booksCategories =$query -> fetchAll(PDO::FETCH_ASSOC);
+    return $booksCategories;
+}
+
+
 }

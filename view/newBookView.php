@@ -16,14 +16,19 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="category">Catégorie</label>
-            <select id="category" name="category" class="form-control">
-                <option value="" selected>Choose...</option>
-                <option value="#">...</option>
+            <select class="form-control" name="category">
+                <option value="" selected>Catégories existantes</option>
+                <?php 
+                foreach($booksCategories as $key => $booksCategorie){
+                ?><option id="category" name="category" value="<?php echo $booksCategories[$key] ?>"><?php echo $booksCategories[$key] ?></option>
+                <?php  
+                }
+                ?>
             </select>
         </div>
         <div class="form-group col-md-6">
-                <label for="category">Ajouter une catégorie</label>
-                <input type="text" class="form-control" name="category" id="category" placeholder="Nouvelle catégorie">
+                <label for="newCategory">Ajouter une catégorie</label>
+                <input type="text" class="form-control" name="newCategory" id="newCategory" placeholder="Nouvelle catégorie">
         </div>
     </div>
 

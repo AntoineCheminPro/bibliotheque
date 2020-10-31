@@ -1,8 +1,38 @@
 <div class="table-responsive ">
+  <div class="row">
+    7<form action="" method="post" class="col-6">
+      <select class="custom-select col-4" id="select" name="CategorySelect">
+        <option>aucun</option>
+        <?php 
+        foreach($booksCategories as $key => $booksCategorie){
+          ?>
+          <option value="<?php echo $booksCategorie?>"><?php echo $booksCategorie?></option>
+          <?php
+        }
+        ?>
+      </select>
+      <button type="submit" class="btn btn-primary">Tri par genre</button>
+    </form>
+    <?php
+    if (isset($_POST["dispo"]) && ($_POST["dispo"]=="tag")){
+      ?>  
+      <form action="" method="post" class="col-4">
+        <button type="submit" href="index.php" class="btn btn-primary">retour</button>
+      </form>
+      <?php
+    }
+    else{?>
+      <form action="" method="post" class="col-4">
+        <button type="submit" name="dispo" value="tag" class="btn btn-primary">disponible</button>
+      </form>
+      <?php
+    }
+    ?>
+  </div>
   <table class="table table table-striped">
-  <thead>
+  <thead class="thead-dark">
     <tr>
-    <th scope="col">Num</th>
+      <th scope="col">Num</th>
       <th scope="col">Titre</th>
       <th scope="col">Auteur</th>
       <th scope="col">Category</th>

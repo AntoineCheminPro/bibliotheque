@@ -34,5 +34,24 @@ final class UserManager extends dataBase {
       return $user;
   }
 
-  
+  // Ajoute un nouvel utislisateur
+  public function addUser(User $user):bool {
+    $query = $this->getDB()->prepare(
+      "INSERT INTO user(sex, firstname, lastname, birth_date, adress, city_code, city, email, phone)
+        VALUES(:sex, :firstname, :lastname, :birth_date, :adress, :city_code, :city, :email, :phone)
+      ");
+    $result= $query->execute([
+      "sex" => $user->getSex(),
+      "firstname" => $user->getFirstname(),
+      "lastname" => $user->getLastname(),
+      "birth_date" => $user->getBirth_date(),
+      "adress" => $user->getAdress(),
+      "city_code" => $user->getCity_code(),
+      "city" => $user->getCity(),
+      "email" => $user->getEmail(),
+      "phone" => $user->getPhone()
+    ]);
+      return $result;
+  }
+    
 }

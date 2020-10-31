@@ -11,7 +11,7 @@
           <a class="btn btn-primary text-white mx-2 my-0" href="newBook.php">Ajout livre</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-primary text-white mx-2 my-0" href="users.php">Nouvel usager</a>
+          <a class="btn btn-primary text-white mx-2 my-0" href="newUser.php">Nouvel usager</a>
         </li>
       </ul>
     </div>
